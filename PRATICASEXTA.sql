@@ -1,3 +1,5 @@
+CREATE DATABASE "drivenBanco";
+
 CREATE TABLE customers (
 	id SERIAL PRIMARY KEY,
 	fullName VARCHAR(30) NOT NULL,
@@ -59,5 +61,15 @@ CREATE TABLE transations(
 
 
 
-
+CREATE TABLE creditCards(
+	id SERIAL NOT NULL PRIMARY KEY,
+    bankAccount INTEGER NOT NULL REFERENCES "bankaccount"("id"),
+	name TEXT,
+	number INTEGER NOT NULL UNIQUE,
+	securityCode TEXT NOT NULL,
+	expirationMonth INTEGER NOT NULL,
+	expirationYear INTEGER NOT NULL,
+	password TEXT NOT NULL,
+	limi INTEGER NOT NULL
+);
 
